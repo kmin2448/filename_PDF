@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# PyInstaller
+build/
+dist/
+
+# 실제 청구서 PDF 및 파싱 결과 (개인정보/계좌정보 포함)
+sample/
+*.pdf
+test_output.txt
