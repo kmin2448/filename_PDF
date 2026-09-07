@@ -1,12 +1,20 @@
 # -*- mode: python ; coding: utf-8 -*-
+from PyInstaller.utils.hooks import collect_all
 
+datas, binaries, hiddenimports = [], [], []
+# pdfplumber 는 pdfminer.six / pypdfium2(네이티브 DLL) 에 의존하므로 통째로 포함한다.
+for _pkg in ("pdfplumber", "pdfminer", "pypdfium2", "pypdfium2_raw"):
+    _d, _b, _h = collect_all(_pkg)
+    datas += _d
+    binaries += _b
+    hiddenimports += _h
 
 a = Analysis(
     ['main.py'],
     pathex=[],
-    binaries=[],
-    datas=[],
-    hiddenimports=[],
+    binaries=binaries,
+    datas=datas,
+    hiddenimports=hiddenimports,
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
