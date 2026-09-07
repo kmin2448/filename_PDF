@@ -8,8 +8,11 @@ venv/
 # PyInstaller
 build/
 dist/
+*.exe
 
 # 실제 청구서 PDF 및 파싱 결과 (개인정보/계좌정보 포함)
 sample/
 *.pdf
 test_output.txt
+# 로컬 sample/ PDF 경로를 직접 참조하는 수동 테스트 스크립트
+test_parser.py
